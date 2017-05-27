@@ -1,5 +1,6 @@
 #include "ageTrain.h"
-#include "opencv2/highgui/highgui.hpp"
+#include "opencv2/highgui.hpp"
+#include "opencv2/opencv.hpp"
 #include <iostream>
 #include <fstream>
 using namespace std;
@@ -73,7 +74,7 @@ void FindAge::loadClassifier(const string&file) {
 void FindAge::resizeImage(vector<Mat>&images, const int & size) {
 	vector<Mat>::iterator it;
 	for (it = images.begin(); it != images.end(); it++) {
-		resize(*(it), *(it), Size(size, size));
+		cv::resize(*(it), *(it), Size(size, size));
 	}
 }
 
@@ -83,7 +84,7 @@ void FindAge::noteAge(Mat&face) {
 	position.x = 25;
 	position.y = 25;
 	face.copyTo(temp);
-	cvtColor(temp, temp, CV_BGR2GRAY);
+	cv::cvtColor(temp, temp, CV_BGR2GRAY);
 	resize(temp, temp, Size(TAILLE_IMAGE, TAILLE_IMAGE));
 	result = modelAge->predict(temp);
 	switch (result)

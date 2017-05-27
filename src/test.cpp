@@ -29,7 +29,7 @@ int main(int argc, const char*argv[]) {
 	cout << "Age Trainig..." << endl;
 	m_age.ageLearning();
 #else
-	m_age.loadClassifier("data/AgeInfo.xml");
+	m_age.loadClassifier("/Users/antoinesauray/Google\ Drive/Projets/GenderAgeClassifier/AgeInfo.xml");
 #endif // !DONT_TRAINING_AGE
 
 	

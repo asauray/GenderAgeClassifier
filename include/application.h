@@ -1,7 +1,8 @@
 #pragma once 
-#include"faceDetection.h"
-#include"genderTrain.h"
-#include"ageTrain.h"
+#include "faceDetection.h"
+#include "genderTrain.h"
+#include "ageTrain.h"
+#include "opencv2/imgproc.hpp"
 class Application
 {
 public:

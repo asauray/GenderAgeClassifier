@@ -110,11 +110,11 @@ void FindGender::noteGender(Mat&face) {
 
 void FindGender::showEigenFace() {
 	// Here is how to get the eigenvalues of this Eigenfaces model:
-	Mat eigenvalues = model->getMat("eigenvalues");
+	Mat eigenvalues = model->getEigenValues();
 	// And we can do the same to display the Eigenvectors (read Eigenfaces):
-	Mat W = model->getMat("eigenvectors");
+	Mat W = model->getEigenVectors();
 	// Get the sample mean from the training data
-	Mat mean = model->getMat("mean");
+	Mat mean = model->getMean();
 
 	imwrite("Wild_mean.png", norm_0_255(mean.reshape(1, 128)));
 	for (int i = 0; i < min(16, W.cols); i++) {

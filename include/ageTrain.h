@@ -1,7 +1,8 @@
 #pragma once
 #include <vector>
-#include "opencv2/core/core.hpp"
-#include "opencv2/contrib/contrib.hpp"
+#include "opencv2/core.hpp"
+#include <opencv2/face.hpp>
+
 class FindAge
 {
 public:
@@ -17,7 +18,7 @@ private:
 	void read_csv(const std::string&filename, std::vector<cv::Mat>&images, std::vector<int>&ageType, char separator = ';');
 	std::string fn_csv = "F:/ProjetMultimedia/CreatCSV/CreatCSV/CreatCSV/AgeTrain.csv";
 	void resizeImage(std::vector<cv::Mat>&images, const int& imageSize);
-	cv::Ptr<cv::FaceRecognizer> modelAge = cv::createLBPHFaceRecognizer();
+	cv::Ptr<cv::face::FaceRecognizer> modelAge = cv::face::createLBPHFaceRecognizer();
 };
 
 

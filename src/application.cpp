@@ -35,7 +35,7 @@ void Application::noteFace() {
 			center.x = cvRound((r.x + r.width*0.5)*scale);
 			center.y = cvRound((r.y + r.height*0.5)*scale);
 			radius = cvRound((r.width + r.height)*0.25*scale);
-			circle(frameCourant, center, radius, color, 3, 8, 0);
+			cv::circle(frameCourant, center, radius, color, 3, 8, 0);
 		}
 		else
 			rectangle(frameCourant, cvPoint(cvRound(r.x*scale), cvRound(r.y*scale)),

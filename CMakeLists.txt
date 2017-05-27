@@ -2,14 +2,15 @@ cmake_minimum_required(VERSION 3.8)
 project(GenderClassifier)
 set (CMAKE_CXX_STANDARD 11)
 
-set(OPENCV_PATH "usr/local/Cellar/opencv/2.4.13.2")
-set(OPENCV_PATH_HEADER "$(OPENCV_PATH)/include")
-set(OPENCV_PATH_LIB "$(OPENCV_PATH)/lib")
+set(OPENCV_PATH /usr/local/Cellar/opencv3/3.2.0)
+set(OPENCV_PATH_HEADER /usr/local/Cellar/opencv3/3.2.0/include)
+set(OPENCV_PATH_LIB /usr/local/Cellar/opencv3/3.2.0/lib)
+
+
+include_directories(/usr/local/Cellar/opencv3/3.2.0/include)
+link_directories(/usr/local/Cellar/opencv3/3.2.0/lib)
 
 include_directories("include")
-
-include_directories($(OPENCV_PATH_HEADER))
-link_directories($(OPENCV_PATH_LIB))
 
 file(
         GLOB_RECURSE
@@ -31,9 +32,12 @@ add_executable (
 
 target_link_libraries(
         classifier
-        opencv_core.2.4.13
-        opencv_contrib.2.4.13
-        opencv_highgui.2.4.13
-        opencv_imgproc.2.4.13
-        opencv_objdetect.2.4.13
+        opencv_core.3.2.0
+        opencv_face.3.2.0
+        opencv_highgui.3.2.0
+        opencv_imgproc.3.2.0
+        opencv_objdetect.3.2.0
+        opencv_video.3.2.0
+        opencv_videoio.3.2.0
+        opencv_imgcodecs.3.2.0
 )
